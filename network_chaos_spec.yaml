@@ -1,0 +1,23 @@
+delay:
+  latency: "100ms"
+  jitter: "10ms"
+  correlation: "25"
+
+loss:
+  loss: "30"
+  correlation: "50"
+
+partition:
+  direction: "both"
+
+duplicate:
+  duplicate: "40"
+  correlation: "50"
+
+corrupt:
+  corrupt: "30"
+  correlation: "50"
+
+bandwidth:
+  rate: "1mbps"
+  burst: 1048576

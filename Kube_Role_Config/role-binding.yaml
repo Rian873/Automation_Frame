@@ -1,0 +1,13 @@
+# chaos-mesh-clusterrolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: chaos-mesh-clusterrolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: chaos-mesh-clusterrole
+subjects:
+  - kind: ServiceAccount
+    name: account-default-manager-vzgxy
+    namespace: default

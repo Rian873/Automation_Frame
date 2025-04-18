@@ -1,0 +1,10 @@
+pod-kill:
+  mode: fixed-percent
+  value: "90" 
+
+pod-failure:
+  mode: fixed-percent
+  value: "75"
+
+container-kill:
+  mode: all

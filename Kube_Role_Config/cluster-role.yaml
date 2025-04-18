@@ -1,0 +1,19 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: chaos-mesh-clusterrole
+rules:
+  - apiGroups:
+      - chaos-mesh.org
+    resources:
+      - workflows
+      - workflows/finalizers
+      - workflows/status
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - update
+      - patch
+      - delete

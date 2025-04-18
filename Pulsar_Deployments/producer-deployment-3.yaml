@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pulsar-producer-topic3
+  labels:
+    app: pulsar-producer-topic3
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: pulsar-producer-topic3
+  template:
+    metadata:
+      labels:
+        app: pulsar-producer-topic3
+    spec:
+      containers:
+      - name: pulsar-producer
+        image: rwaltertcd/pulsar-producer:latest
+        imagePullPolicy: Always
+        env:
+        - name: PULSAR_SERVICE_URL
+          value: "pulsar://my-pulsar-broker.pulsar.svc.cluster.local:6650"
+        - name: TOPIC
+          value: "persistent://public/default/topic-3"
+        - name: MESSAGES_PER_SECOND
+          value: "750"  # adjust the rate as needed

@@ -1,0 +1,41 @@
+# experiments_config.yaml
+
+# Global settings (optional)
+namespace: default
+app_label: my-app
+trigger: false  # If true, experiments run immediately (suspend=false)
+
+experiments:
+  podChaos:
+    enabled: true
+    subtypes:
+      - name: pod-failure
+        enabled: false
+      - name: pod-kill
+        enabled: true
+      - name: container-kill
+        enabled: false
+
+  networkChaos:
+    enabled: false
+    subtypes:
+      - name: partition
+        enabled: false
+      - name: loss
+        enabled: false
+      - name: delay
+        enabled: false
+      - name: duplicate
+        enabled: false
+      - name: corrupt
+        enabled: true
+      - name: bandwidth
+        enabled: false
+
+  stressChaos:
+    enabled: false
+    subtypes:
+      - name: cpu
+        enabled: true
+      - name: memory
+        enabled: true

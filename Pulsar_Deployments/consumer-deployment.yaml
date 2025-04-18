@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pulsar-consumer
+  labels:
+    app: pulsar-consumer
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: pulsar-consumer
+  template:
+    metadata:
+      labels:
+        app: pulsar-consumer
+    spec:
+      containers:
+      - name: pulsar-consumer
+        image: rwaltertcd/pulsar-consumer:latest
+        imagePullPolicy: Always
+        env:
+        - name: PULSAR_SERVICE_URL
+          value: "pulsar://my-pulsar-broker.pulsar.svc.cluster.local:6650"
+        - name: TOPIC
+          value: "persistent://public/default/topic-1"  # or another topic as needed
+        - name: SUBSCRIPTION_NAME
+          value: "subscription-1"  # customize if needed
+
